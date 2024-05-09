@@ -1,0 +1,78 @@
+// Part One
+class Vehicle {
+    // Constructor to initialize make, model, and year properties
+    constructor(make, model, year) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+    }
+
+    // Method to produce the sound of honking
+    honk() {
+        return "Beep.";
+    }
+
+    // Method to return a string representation of the vehicle
+    toString() {
+        return `The vehicle is a ${this.make} ${this.model} from ${this.year}.`;
+    }
+}
+
+// Part Two
+class Car extends Vehicle {
+    // Constructor to initialize make, model, year, and numWheels properties
+    constructor(make, model, year) {
+        // Call the parent class constructor using super
+        super(make, model, year);
+        this.numWheels = 4; // Number of wheels for cars is always 4
+    }
+}
+
+// Part Three
+class Motorcycle extends Vehicle {
+    // Constructor to initialize make, model, year, and numWheels properties
+    constructor(make, model, year) {
+        // Call the parent class constructor using super
+        super(make, model, year);
+        this.numWheels = 2; // Number of wheels for motorcycles is always 2
+    }
+
+    // Method to produce the sound of revving the engine
+    revEngine() {
+        return "VROOM!!!";
+    }
+}
+
+// Part Four
+class Garage {
+    // Constructor to initialize capacity and vehicles array
+    constructor(capacity) {
+        this.capacity = capacity; // Number of vehicles the garage can hold
+        this.vehicles = []; // Array to store vehicles in the garage
+    }
+
+    // Method to add a vehicle to the garage
+    add(vehicle) {
+        // Check if the vehicle is an instance of the Vehicle class
+        if (!(vehicle instanceof Vehicle)) {
+            return "Only vehicles are allowed in here!"; // Return error message if not a vehicle
+        }
+        // Check if the garage is at full capacity
+        if (this.vehicles.length >= this.capacity) {
+            return "Sorry, we're full."; // Return error message if garage is full
+        }
+        // Add the vehicle to the garage
+        this.vehicles.push(vehicle);
+        return "Vehicle added!"; // Return success message
+    }
+}
+
+// Test the classes
+// Test Part One
+let myFirstVehicle = new Vehicle("Honda", "Monster Truck", 1999);
+console.log(myFirstVehicle.honk());     // "Beep."
+console.log(myFirstVehicle.toString()); // "The vehicle is a Honda Monster Truck from 1999."
+
+// Test Part Two
+let myFirstCar = new Car("Toyota", "Corolla", 2005);
+console.log(myFirstCar.toString()); // "The vehicle is
